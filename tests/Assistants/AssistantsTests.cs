@@ -1745,7 +1745,7 @@ public class AssistantsTests : SyncAsyncTestBase
         // functions correctly as the convenience return type.
         await foreach (Assistant assistant in assistants)
         {
-            Assert.AreEqual(createdAssistants[count++].Id, assistant.Id);
+            Assert.That(assistant.Id, Is.EqualTo(createdAssistants[count++].Id));
 
             if (count >= createdAssistants.Count)
             {
@@ -1794,7 +1794,7 @@ public class AssistantsTests : SyncAsyncTestBase
         // functions correctly as the convenience return type.
         foreach (Assistant assistant in assistants)
         {
-            Assert.AreEqual(createdAssistants[count++].Id, assistant.Id);
+            Assert.That(assistant.Id, Is.EqualTo(createdAssistants[count++].Id));
 
             if (count >= createdAssistants.Count)
             {
@@ -1876,7 +1876,7 @@ public class AssistantsTests : SyncAsyncTestBase
                 .ToListAsync();
         }
 
-        CollectionAssert.AreEqual(runSteps, rehydratedRunSteps);
+        Assert.That(rehydratedRunSteps, Is.EqualTo(runSteps).AsCollection);
     }
 
     [SyncOnly]
@@ -1949,7 +1949,7 @@ public class AssistantsTests : SyncAsyncTestBase
                 .ToList();
         }
 
-        CollectionAssert.AreEqual(runSteps, rehydratedRunSteps);
+        Assert.That(rehydratedRunSteps, Is.EqualTo(runSteps).AsCollection);
     }
 
     [Test]
