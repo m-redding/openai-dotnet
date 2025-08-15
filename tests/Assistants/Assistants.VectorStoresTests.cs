@@ -234,7 +234,7 @@ public class VectorStoresTests : RecordedTestBase<OpenAITestEnvironment>
             ? await client.RemoveFileFromStoreAsync(vectorStore.Id, files[0].Id)
             : client.RemoveFileFromStore(vectorStore.Id, files[0].Id);
         Assert.That(removalResult.FileId, Is.EqualTo(files[0].Id));
-        Assert.True(removalResult.Removed);
+        Assert.That(removalResult.Removed);
         _associationsToRemove.RemoveAt(0);
 
         // Errata: removals aren't immediately reflected when requesting the list
@@ -291,7 +291,7 @@ public class VectorStoresTests : RecordedTestBase<OpenAITestEnvironment>
 
         FileFromStoreRemovalResult removalResult = await client.RemoveFileFromStoreAsync(vectorStore.Id, files[0].Id);
         Assert.That(removalResult.FileId, Is.EqualTo(files[0].Id));
-        Assert.True(removalResult.Removed);
+        Assert.That(removalResult.Removed);
         _associationsToRemove.RemoveAt(0);
 
         // Errata: removals aren't immediately reflected when requesting the list
@@ -372,7 +372,7 @@ public class VectorStoresTests : RecordedTestBase<OpenAITestEnvironment>
 
         FileFromStoreRemovalResult removalResult = client.RemoveFileFromStore(vectorStore.Id, files[0].Id);
         Assert.That(removalResult.FileId, Is.EqualTo(files[0].Id));
-        Assert.True(removalResult.Removed);
+        Assert.That(removalResult.Removed);
         _associationsToRemove.RemoveAt(0);
 
         // Errata: removals aren't immediately reflected when requesting the list
@@ -518,8 +518,8 @@ public class VectorStoresTests : RecordedTestBase<OpenAITestEnvironment>
             Task.Run(() => batchOperation.WaitForCompletion()),
             Task.Run(() => rehydratedOperation.WaitForCompletion()));
 
-        Assert.IsTrue(batchOperation.HasCompleted);
-        Assert.IsTrue(rehydratedOperation.HasCompleted);
+        Assert.That(batchOperation.HasCompleted);
+        Assert.That(rehydratedOperation.HasCompleted);
         Assert.That(rehydratedOperation.Status, Is.EqualTo(batchOperation.Status));
     }
 

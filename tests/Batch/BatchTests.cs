@@ -52,7 +52,7 @@ public class BatchTests : SyncAsyncTestBase
             pageCount++;
         }
 
-        Assert.GreaterOrEqual(pageCount, 1);
+        Assert.That(pageCount, Is.GreaterThanOrEqualTo(1));
     }
 
     [AsyncOnly]
@@ -83,7 +83,7 @@ public class BatchTests : SyncAsyncTestBase
             pageCount++;
         }
 
-        Assert.GreaterOrEqual(pageCount, 1);
+        Assert.That(pageCount, Is.GreaterThanOrEqualTo(1));
     }
 
     [Test]
@@ -225,8 +225,8 @@ public class BatchTests : SyncAsyncTestBase
             return true;
         }
 
-        Assert.IsTrue(Validate(batchOperation));
-        Assert.IsTrue(Validate(rehydratedOperation));
+        Assert.That(Validate(batchOperation));
+        Assert.That(Validate(rehydratedOperation));
 
         // We don't test wait for completion live because this is documented to
         // sometimes take 24 hours.
