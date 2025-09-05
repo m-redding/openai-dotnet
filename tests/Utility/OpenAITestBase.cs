@@ -1,4 +1,5 @@
 ﻿using Microsoft.ClientModel.TestFramework;
+using Microsoft.ClientModel.TestFramework.TestProxy.Admin;
 using System;
 using System.Collections.Generic;
 using System.Linq;

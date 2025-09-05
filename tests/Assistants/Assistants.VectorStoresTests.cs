@@ -18,9 +18,8 @@ namespace OpenAI.Tests.VectorStores;
 
 #pragma warning disable OPENAI001
 
-[ClientTestFixture]
 [Category("Assistants")]
-public class VectorStoresTests : RecordedTestBase<OpenAITestEnvironment>
+public class VectorStoresTests : OpenAIRecordedTestBase
 {
     private readonly List<CreateBatchFileJobOperation> _jobsToCancel = [];
     private readonly List<VectorStoreFileAssociation> _associationsToRemove = [];
@@ -29,10 +28,10 @@ public class VectorStoresTests : RecordedTestBase<OpenAITestEnvironment>
 
     private static readonly DateTimeOffset s_2024 = new(2024, 1, 1, 0, 0, 0, TimeSpan.Zero);
 
-    private VectorStoreClient GetTestClient() => CreateProxyFromClient(GetTestClient<VectorStoreClient>(TestScenario.VectorStores), null);
+    private VectorStoreClient GetTestClient() => GetProxiedOpenAIClient<VectorStoreClient>(TestScenario.VectorStores);
 
     public VectorStoresTests(bool isAsync)
-        : base(isAsync, RecordedTestMode.Record)
+        : base(isAsync, RecordedTestMode.Live)
     {
     }
 
@@ -41,20 +40,16 @@ public class VectorStoresTests : RecordedTestBase<OpenAITestEnvironment>
     {
         VectorStoreClient client = GetTestClient();
 
-        CreateVectorStoreOperation createOperation = IsAsync
-            ? await client.CreateVectorStoreAsync(waitUntilCompleted: false)
-            : client.CreateVectorStore(waitUntilCompleted: false);
+        CreateVectorStoreOperation createOperation = await client.CreateVectorStoreAsync(waitUntilCompleted: false);
         VectorStore vectorStore = createOperation.Value;
         Validate(vectorStore);
 
-        VectorStoreDeletionResult deletionResult = IsAsync
-            ? await client.DeleteVectorStoreAsync(vectorStore.Id)
-            : client.DeleteVectorStore(vectorStore.Id);
+        VectorStoreDeletionResult deletionResult = await client.DeleteVectorStoreAsync(vectorStore.Id);
         Assert.That(deletionResult.VectorStoreId, Is.EqualTo(vectorStore.Id));
         Assert.That(deletionResult.Deleted, Is.True);
         _vectorStoresToDelete.RemoveAt(_vectorStoresToDelete.Count - 1);
 
-        IReadOnlyList<OpenAIFile> testFiles = GetNewTestFiles(5);
+        IReadOnlyList<OpenAIFile> testFiles = await GetNewTestFiles(5);
         VectorStoreCreationOptions creationOptions = new VectorStoreCreationOptions()
         {
             FileIds = { testFiles[0].Id },
@@ -65,9 +60,7 @@ public class VectorStoresTests : RecordedTestBase<OpenAITestEnvironment>
                 ["test-key"] = "test-value",
             },
         };
-        createOperation = IsAsync
-           ? await client.CreateVectorStoreAsync(waitUntilCompleted: false, creationOptions)
-           : client.CreateVectorStore(waitUntilCompleted: false, creationOptions);
+        createOperation = await client.CreateVectorStoreAsync(waitUntilCompleted: false, creationOptions);
 
         Validate(createOperation.Value);
         Assert.Multiple(() =>
@@ -94,9 +87,7 @@ public class VectorStoresTests : RecordedTestBase<OpenAITestEnvironment>
             Assert.That(vectorStore.Metadata?.TryGetValue("test-key", out string metadataValue) == true && metadataValue == "test-value");
         });
 
-        deletionResult = IsAsync
-            ? await client.DeleteVectorStoreAsync(vectorStore.Id)
-            : client.DeleteVectorStore(vectorStore.Id);
+        deletionResult = await client.DeleteVectorStoreAsync(vectorStore.Id);
         Assert.That(deletionResult.VectorStoreId, Is.EqualTo(vectorStore.Id));
         Assert.That(deletionResult.Deleted, Is.True);
         _vectorStoresToDelete.RemoveAt(_vectorStoresToDelete.Count - 1);
@@ -106,9 +97,7 @@ public class VectorStoresTests : RecordedTestBase<OpenAITestEnvironment>
         {
             creationOptions.FileIds.Add(file.Id);
         }
-        createOperation = IsAsync
-            ? await client.CreateVectorStoreAsync(waitUntilCompleted: true, creationOptions)
-            : client.CreateVectorStore(waitUntilCompleted: true, creationOptions);
+        createOperation = await client.CreateVectorStoreAsync(waitUntilCompleted: true, creationOptions);
         vectorStore = createOperation.Value;
 
         Validate(vectorStore);
@@ -119,48 +108,8 @@ public class VectorStoresTests : RecordedTestBase<OpenAITestEnvironment>
         });
     }
 
-    [SyncOnly]
     [Test]
-    public void CanEnumerateVectorStores()
-    {
-        VectorStoreClient client = GetTestClient();
-        for (int i = 0; i < 10; i++)
-        {
-            CreateVectorStoreOperation createOperation = client.CreateVectorStore(waitUntilCompleted: true, new VectorStoreCreationOptions()
-            {
-                Name = $"Test Vector Store {i}",
-            });
-            VectorStore vectorStore = createOperation.Value;
-            Validate(vectorStore);
-            Assert.That(vectorStore.Name, Is.EqualTo($"Test Vector Store {i}"));
-        }
-
-        int lastIdSeen = int.MaxValue;
-        int count = 0;
-
-        foreach (VectorStore vectorStore in client.GetVectorStores(new VectorStoreCollectionOptions() { Order = VectorStoreCollectionOrder.Descending }))
-        {
-            Assert.That(vectorStore.Id, Is.Not.Null);
-            if (vectorStore.Name?.StartsWith("Test Vector Store ") == true)
-            {
-                string idString = vectorStore.Name["Test Vector Store ".Length..];
-
-                Assert.That(int.TryParse(idString, out int seenId), Is.True);
-                Assert.That(seenId, Is.LessThan(lastIdSeen));
-                lastIdSeen = seenId;
-            }
-            if (lastIdSeen == 0 || ++count >= 100)
-            {
-                break;
-            }
-        }
-
-        Assert.That(lastIdSeen, Is.EqualTo(0));
-    }
-
-    [AsyncOnly]
-    [Test]
-    public async Task CanEnumerateVectorStoresAsync()
+    public async Task CanEnumerateVectorStores()
     {
         VectorStoreClient client = GetTestClient();
         for (int i = 0; i < 5; i++)
@@ -205,20 +154,15 @@ public class VectorStoresTests : RecordedTestBase<OpenAITestEnvironment>
     public async Task CanAssociateFiles()
     {
         VectorStoreClient client = GetTestClient();
-        CreateVectorStoreOperation createOperation = IsAsync
-            ? await client.CreateVectorStoreAsync(waitUntilCompleted: true)
-            : client.CreateVectorStore(waitUntilCompleted: true);
+        CreateVectorStoreOperation createOperation = await client.CreateVectorStoreAsync(waitUntilCompleted: true);
         VectorStore vectorStore = createOperation.Value;
         Validate(vectorStore);
 
-        IReadOnlyList<OpenAIFile> files = GetNewTestFiles(3);
+        IReadOnlyList<OpenAIFile> files = await GetNewTestFiles(3);
 
         foreach (OpenAIFile file in files)
         {
-            AddFileToVectorStoreOperation addOperation = IsAsync
-                ? await client.AddFileToVectorStoreAsync(vectorStore.Id, file.Id, waitUntilCompleted: false)
-                : client.AddFileToVectorStore(vectorStore.Id, file.Id, waitUntilCompleted: false);
-            VectorStoreFileAssociation association = addOperation.Value;
+            AddFileToVectorStoreOperation addOperation = await client.AddFileToVectorStoreAsync(vectorStore.Id, file.Id, waitUntilCompleted: false);            VectorStoreFileAssociation association = addOperation.Value;
             Validate(association);
             Assert.Multiple(() =>
             {
@@ -230,9 +174,7 @@ public class VectorStoresTests : RecordedTestBase<OpenAITestEnvironment>
             });
         }
 
-        FileFromStoreRemovalResult removalResult = IsAsync
-            ? await client.RemoveFileFromStoreAsync(vectorStore.Id, files[0].Id)
-            : client.RemoveFileFromStore(vectorStore.Id, files[0].Id);
+        FileFromStoreRemovalResult removalResult = await client.RemoveFileFromStoreAsync(vectorStore.Id, files[0].Id);
         Assert.That(removalResult.FileId, Is.EqualTo(files[0].Id));
         Assert.That(removalResult.Removed);
         _associationsToRemove.RemoveAt(0);
@@ -242,37 +184,25 @@ public class VectorStoresTests : RecordedTestBase<OpenAITestEnvironment>
 
         int count = 0;
 
-        if (IsAsync)
+        await foreach (VectorStoreFileAssociation association in client.GetFileAssociationsAsync(vectorStore.Id))
         {
-            await foreach (VectorStoreFileAssociation association in client.GetFileAssociationsAsync(vectorStore.Id))
-            {
-                count++;
-                Assert.That(association.FileId, Is.Not.EqualTo(files[0].Id));
-                Assert.That(association.VectorStoreId, Is.EqualTo(vectorStore.Id));
-            }
+            count++;
+            Assert.That(association.FileId, Is.Not.EqualTo(files[0].Id));
+            Assert.That(association.VectorStoreId, Is.EqualTo(vectorStore.Id));
         }
-        else
-        {
-            foreach (VectorStoreFileAssociation association in client.GetFileAssociations(vectorStore.Id))
-            {
-                count++;
-                Assert.That(association.FileId, Is.Not.EqualTo(files[0].Id));
-                Assert.That(association.VectorStoreId, Is.EqualTo(vectorStore.Id));
-            }
-        }
+
         Assert.That(count, Is.EqualTo(2));
     }
 
-    [AsyncOnly]
     [Test]
-    public async Task Pagination_CanRehydrateFileAssociationCollectionAsync()
+    public async Task Pagination_CanRehydrateFileAssociationCollection()
     {
         VectorStoreClient client = GetTestClient();
         CreateVectorStoreOperation createOperation = await client.CreateVectorStoreAsync(waitUntilCompleted: false);
         VectorStore vectorStore = createOperation.Value;
         Validate(vectorStore);
 
-        IReadOnlyList<OpenAIFile> files = GetNewTestFiles(6);
+        IReadOnlyList<OpenAIFile> files = await GetNewTestFiles(6);
 
         foreach (OpenAIFile file in files)
         {
@@ -344,81 +274,6 @@ public class VectorStoresTests : RecordedTestBase<OpenAITestEnvironment>
         Assert.That(pageCount, Is.EqualTo(2));
     }
 
-    [SyncOnly]
-    [Test]
-    public void Pagination_CanRehydrateFileAssociationCollection()
-    {
-        VectorStoreClient client = GetTestClient();
-        CreateVectorStoreOperation createOperation = client.CreateVectorStore(waitUntilCompleted: true);
-        VectorStore vectorStore = createOperation.Value;
-        Validate(vectorStore);
-
-        IReadOnlyList<OpenAIFile> files = GetNewTestFiles(6);
-
-        foreach (OpenAIFile file in files)
-        {
-            AddFileToVectorStoreOperation addOperation = client.AddFileToVectorStore(vectorStore.Id, file.Id, waitUntilCompleted: false);
-            VectorStoreFileAssociation association = addOperation.Value;
-            Validate(association);
-            Assert.Multiple(() =>
-            {
-                Assert.That(association.FileId, Is.EqualTo(file.Id));
-                Assert.That(association.VectorStoreId, Is.EqualTo(vectorStore.Id));
-                Assert.That(association.LastError, Is.Null);
-                Assert.That(association.CreatedAt, Is.GreaterThan(s_2024));
-                Assert.That(association.Status, Is.EqualTo(VectorStoreFileAssociationStatus.InProgress));
-            });
-        }
-
-        FileFromStoreRemovalResult removalResult = client.RemoveFileFromStore(vectorStore.Id, files[0].Id);
-        Assert.That(removalResult.FileId, Is.EqualTo(files[0].Id));
-        Assert.That(removalResult.Removed);
-        _associationsToRemove.RemoveAt(0);
-
-        // Errata: removals aren't immediately reflected when requesting the list
-        Thread.Sleep(2000);
-
-        CollectionResult<VectorStoreFileAssociation> fileAssociations = client.GetFileAssociations(vectorStore.Id, new VectorStoreFileAssociationCollectionOptions() { PageSizeLimit = 2 });
-        IEnumerable<ClientResult> pages = fileAssociations.GetRawPages();
-        IEnumerator<ClientResult> pageEnumerator = pages.GetEnumerator();
-        pageEnumerator.MoveNext();
-        ClientResult firstPage = pageEnumerator.Current;
-        ContinuationToken nextPageToken = fileAssociations.GetContinuationToken(firstPage);
-
-        // Simulate rehydration of the collection
-        BinaryData rehydrationBytes = nextPageToken.ToBytes();
-        ContinuationToken rehydrationToken = ContinuationToken.FromBytes(rehydrationBytes);
-
-        CollectionResult<VectorStoreFileAssociation> rehydratedFileAssociations = client.GetFileAssociations(rehydrationToken);
-        IEnumerable<ClientResult> rehydratedPages = rehydratedFileAssociations.GetRawPages();
-        IEnumerator<ClientResult> rehydratedPageEnumerator = rehydratedPages.GetEnumerator();
-
-        int pageCount = 0;
-
-        while (pageEnumerator.MoveNext() && rehydratedPageEnumerator.MoveNext())
-        {
-            ClientResult page = pageEnumerator.Current;
-            ClientResult rehydratedPage = rehydratedPageEnumerator.Current;
-
-            List<VectorStoreFileAssociation> itemsInPage = GetFileAssociationsFromPage(page).ToList();
-            List<VectorStoreFileAssociation> itemsInRehydratedPage = GetFileAssociationsFromPage(rehydratedPage).ToList();
-
-            Assert.That(itemsInRehydratedPage.Count, Is.EqualTo(itemsInPage.Count));
-
-            for (int i = 0; i < itemsInPage.Count; i++)
-            {
-                Assert.That(itemsInRehydratedPage[0].FileId, Is.EqualTo(itemsInPage[0].FileId));
-                Assert.That(itemsInRehydratedPage[0].VectorStoreId, Is.EqualTo(itemsInPage[0].VectorStoreId));
-                Assert.That(itemsInRehydratedPage[0].CreatedAt, Is.EqualTo(itemsInPage[0].CreatedAt));
-                Assert.That(itemsInRehydratedPage[0].Size, Is.EqualTo(itemsInPage[0].Size));
-            }
-
-            pageCount++;
-        }
-
-        Assert.That(pageCount, Is.GreaterThanOrEqualTo(1));
-    }
-
     private static IEnumerable<VectorStoreFileAssociation> GetFileAssociationsFromPage(ClientResult page)
     {
         PipelineResponse response = page.GetRawResponse();
@@ -433,13 +288,13 @@ public class VectorStoresTests : RecordedTestBase<OpenAITestEnvironment>
     public async Task CanUseBatchIngestion()
     {
         VectorStoreClient client = GetTestClient();
-        CreateVectorStoreOperation createOperation = client.CreateVectorStore(waitUntilCompleted: true);
+        CreateVectorStoreOperation createOperation = await client.CreateVectorStoreAsync(waitUntilCompleted: true);
         VectorStore vectorStore = createOperation.Value;
         Validate(vectorStore);
 
-        IReadOnlyList<OpenAIFile> testFiles = GetNewTestFiles(5);
+        IReadOnlyList<OpenAIFile> testFiles = await GetNewTestFiles(5);
 
-        CreateBatchFileJobOperation batchFileJobOperation = client.CreateBatchFileJob(vectorStore.Id, testFiles?.Select(file => file.Id), waitUntilCompleted: false);
+        CreateBatchFileJobOperation batchFileJobOperation = await client.CreateBatchFileJobAsync(vectorStore.Id, testFiles?.Select(file => file.Id), waitUntilCompleted: false);
         Validate(batchFileJobOperation);
 
         Assert.Multiple(() =>
@@ -451,49 +306,31 @@ public class VectorStoresTests : RecordedTestBase<OpenAITestEnvironment>
 
         batchFileJobOperation.WaitForCompletion();
 
-        if (IsAsync)
+        await foreach (VectorStoreFileAssociation association in client.GetFileAssociationsAsync(batchFileJobOperation.VectorStoreId))
         {
-            await foreach (VectorStoreFileAssociation association in client.GetFileAssociationsAsync(batchFileJobOperation.VectorStoreId))
+            Assert.Multiple(() =>
             {
-                Assert.Multiple(() =>
-                {
-                    Assert.That(association.FileId, Is.Not.Null);
-                    Assert.That(association.VectorStoreId, Is.EqualTo(vectorStore.Id));
-                    Assert.That(association.Status, Is.EqualTo(VectorStoreFileAssociationStatus.Completed));
-                    // Assert.That(association.Size, Is.GreaterThan(0));
-                    Assert.That(association.CreatedAt, Is.GreaterThan(s_2024));
-                    Assert.That(association.LastError, Is.Null);
-                });
-            }
-        }
-        else
-        {
-            foreach (VectorStoreFileAssociation association in client.GetFileAssociations(batchFileJobOperation.VectorStoreId))
-            {
-                Assert.Multiple(() =>
-                {
-                    Assert.That(association.FileId, Is.Not.Null);
-                    Assert.That(association.VectorStoreId, Is.EqualTo(vectorStore.Id));
-                    Assert.That(association.Status, Is.EqualTo(VectorStoreFileAssociationStatus.Completed));
-                    // Assert.That(association.Size, Is.GreaterThan(0));
-                    Assert.That(association.CreatedAt, Is.GreaterThan(s_2024));
-                    Assert.That(association.LastError, Is.Null);
-                });
-            }
+                Assert.That(association.FileId, Is.Not.Null);
+                Assert.That(association.VectorStoreId, Is.EqualTo(vectorStore.Id));
+                Assert.That(association.Status, Is.EqualTo(VectorStoreFileAssociationStatus.Completed));
+                // Assert.That(association.Size, Is.GreaterThan(0));
+                Assert.That(association.CreatedAt, Is.GreaterThan(s_2024));
+                Assert.That(association.LastError, Is.Null);
+            });
         }
     }
 
     [Test]
-    public void CanRehydrateBatchFileJob()
+    public async Task CanRehydrateBatchFileJob()
     {
         VectorStoreClient client = GetTestClient();
-        CreateVectorStoreOperation createOperation = client.CreateVectorStore(waitUntilCompleted: true);
+        CreateVectorStoreOperation createOperation = await client.CreateVectorStoreAsync(waitUntilCompleted: true);
         VectorStore vectorStore = createOperation.Value;
         Validate(vectorStore);
 
-        IReadOnlyList<OpenAIFile> testFiles = GetNewTestFiles(5);
+        IReadOnlyList<OpenAIFile> testFiles = await GetNewTestFiles(5);
 
-        CreateBatchFileJobOperation batchOperation = client.CreateBatchFileJob(vectorStore.Id, testFiles?.Select(file => file.Id), waitUntilCompleted: false);
+        CreateBatchFileJobOperation batchOperation = await client.CreateBatchFileJobAsync(vectorStore.Id, testFiles?.Select(file => file.Id), waitUntilCompleted: false);
         Validate(batchOperation);
 
         // Simulate rehydration of the operation
@@ -530,7 +367,7 @@ public class VectorStoresTests : RecordedTestBase<OpenAITestEnvironment>
     [TestCase(ChunkingStrategyKind.Static)]
     public async Task CanApplyChunkingStrategy(ChunkingStrategyKind strategyKind)
     {
-        IReadOnlyList<OpenAIFile> testFiles = GetNewTestFiles(5);
+        IReadOnlyList<OpenAIFile> testFiles = await GetNewTestFiles(5);
 
         VectorStoreClient client = GetTestClient();
 
@@ -555,71 +392,42 @@ public class VectorStoresTests : RecordedTestBase<OpenAITestEnvironment>
         {
             creationOptions.FileIds.Add(file.Id);
         }
-        CreateVectorStoreOperation createOperation = IsAsync
-            ? await client.CreateVectorStoreAsync(waitUntilCompleted: true, creationOptions)
-            : client.CreateVectorStore(waitUntilCompleted: true, creationOptions);
+        CreateVectorStoreOperation createOperation = await client.CreateVectorStoreAsync(waitUntilCompleted: true, creationOptions);
         VectorStore vectorStore = createOperation.Value;
         Validate(vectorStore);
         Assert.That(vectorStore.FileCounts.Total, Is.EqualTo(5));
 
-        if (IsAsync)
+        AsyncCollectionResult<VectorStoreFileAssociation> associations = client.GetFileAssociationsAsync(vectorStore.Id);
+
+        await foreach (VectorStoreFileAssociation association in associations)
         {
-            AsyncCollectionResult<VectorStoreFileAssociation> associations = client.GetFileAssociationsAsync(vectorStore.Id);
+            Assert.That(testFiles.Any(file => file.Id == association.FileId), Is.True);
+            Assert.That(association.ChunkingStrategy, Is.InstanceOf<StaticFileChunkingStrategy>());
+            StaticFileChunkingStrategy staticStrategy = association.ChunkingStrategy as StaticFileChunkingStrategy;
 
-            await foreach (VectorStoreFileAssociation association in associations)
+            Assert.That(staticStrategy.MaxTokensPerChunk, Is.EqualTo(strategyKind switch
             {
-                Assert.That(testFiles.Any(file => file.Id == association.FileId), Is.True);
-                Assert.That(association.ChunkingStrategy, Is.InstanceOf<StaticFileChunkingStrategy>());
-                StaticFileChunkingStrategy staticStrategy = association.ChunkingStrategy as StaticFileChunkingStrategy;
-
-                Assert.That(staticStrategy.MaxTokensPerChunk, Is.EqualTo(strategyKind switch
-                {
-                    ChunkingStrategyKind.Auto => 800,
-                    ChunkingStrategyKind.Static => 1200,
-                    _ => throw new NotImplementedException()
-                }));
-                Assert.That(staticStrategy.OverlappingTokenCount, Is.EqualTo(strategyKind switch
-                {
-                    ChunkingStrategyKind.Auto => 400,
-                    ChunkingStrategyKind.Static => 250,
-                    _ => throw new NotImplementedException()
-                }));
-            }
-        }
-        else
-        {
-            CollectionResult<VectorStoreFileAssociation> associations = client.GetFileAssociations(vectorStore.Id);
-
-            foreach (VectorStoreFileAssociation association in associations)
+                ChunkingStrategyKind.Auto => 800,
+                ChunkingStrategyKind.Static => 1200,
+                _ => throw new NotImplementedException()
+            }));
+            Assert.That(staticStrategy.OverlappingTokenCount, Is.EqualTo(strategyKind switch
             {
-                Assert.That(testFiles.Any(file => file.Id == association.FileId), Is.True);
-                Assert.That(association.ChunkingStrategy, Is.InstanceOf<StaticFileChunkingStrategy>());
-                StaticFileChunkingStrategy staticStrategy = association.ChunkingStrategy as StaticFileChunkingStrategy;
-
-                Assert.That(staticStrategy.MaxTokensPerChunk, Is.EqualTo(strategyKind switch
-                {
-                    ChunkingStrategyKind.Auto => 800,
-                    ChunkingStrategyKind.Static => 1200,
-                    _ => throw new NotImplementedException()
-                }));
-                Assert.That(staticStrategy.OverlappingTokenCount, Is.EqualTo(strategyKind switch
-                {
-                    ChunkingStrategyKind.Auto => 400,
-                    ChunkingStrategyKind.Static => 250,
-                    _ => throw new NotImplementedException()
-                }));
-            }
+                ChunkingStrategyKind.Auto => 400,
+                ChunkingStrategyKind.Static => 250,
+                _ => throw new NotImplementedException()
+            }));
         }
     }
 
-    private IReadOnlyList<OpenAIFile> GetNewTestFiles(int count)
+    private async Task<IReadOnlyList<OpenAIFile>> GetNewTestFiles(int count)
     {
         List<OpenAIFile> files = [];
 
-        OpenAIFileClient client = GetTestClient<OpenAIFileClient>(TestScenario.Files);
+        OpenAIFileClient client = GetProxiedOpenAIClient<OpenAIFileClient>(TestScenario.Files);
         for (int i = 0; i < count; i++)
         {
-            OpenAIFile file = client.UploadFile(
+            OpenAIFile file = await client.UploadFileAsync(
                 BinaryData.FromString("This is a test file").ToStream(),
                 $"test_file_{i.ToString().PadLeft(3, '0')}.txt",
                 FileUploadPurpose.Assistants);
@@ -671,10 +479,6 @@ public class VectorStoresTests : RecordedTestBase<OpenAITestEnvironment>
     /// <exception cref="NotImplementedException"> The provided instance type isn't supported. </exception>
     private void Validate<T>(T target)
     {
-        if (target is IProxiedOperationResult result)
-        {
-            target = (T)result.Original;
-        }
         if (target is CreateBatchFileJobOperation job)
         {
             Assert.That(job.BatchId, Is.Not.Null);

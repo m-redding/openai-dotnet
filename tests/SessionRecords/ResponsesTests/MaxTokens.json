@@ -8,7 +8,7 @@
         "Authorization": "Sanitized",
         "Content-Length": "172",
         "Content-Type": "application/json",
-        "User-Agent": "OpenAI/2.2.0 (.NET 9.0.7; Microsoft Windows 10.0.26100)"
+        "User-Agent": "OpenAI/2.3.0 (.NET 9.0.8; Microsoft Windows 10.0.26100)"
       },
       "RequestBody": {
         "model": "gpt-4o-mini",
@@ -30,32 +30,31 @@
       "ResponseHeaders": {
         "Alt-Svc": "h3=\":443\"",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "9682e26dfe3d7609-SEA",
+        "CF-RAY": "972dca1e5daa9b60-SEA",
         "Connection": "keep-alive",
-        "Content-Length": "1049",
+        "Content-Length": "1467",
         "Content-Type": "application/json",
-        "Date": "Fri, 01 Aug 2025 05:20:08 GMT",
+        "Date": "Thu, 21 Aug 2025 23:07:57 GMT",
         "openai-organization": "Sanitized",
-        "openai-processing-ms": "906",
+        "openai-processing-ms": "884",
         "openai-project": "Sanitized",
         "openai-version": "2020-10-01",
         "Server": "cloudflare",
         "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
         "X-Content-Type-Options": "nosniff",
-        "x-envoy-decorator-operation": "tasksapi.openai.svc.cluster.local:8081/*",
-        "x-envoy-upstream-service-time": "919",
+        "x-envoy-upstream-service-time": "888",
         "x-ratelimit-limit-requests": "30000",
         "x-ratelimit-limit-tokens": "150000000",
         "x-ratelimit-remaining-requests": "29999",
         "x-ratelimit-remaining-tokens": "149999967",
         "x-ratelimit-reset-requests": "2ms",
         "x-ratelimit-reset-tokens": "0s",
-        "X-Request-ID": "req_b7b0bf9512d62555eae56607f83d3d41"
+        "X-Request-ID": "Sanitized"
       },
       "ResponseBody": {
-        "id": "Sanitized",
+        "id": "resp_68a7a6cc960c8193be4c84dbb63b0ce80af479608bce0e5e",
         "object": "response",
-        "created_at": 1754025607,
+        "created_at": 1755817676,
         "status": "incomplete",
         "background": false,
         "error": null,
@@ -68,7 +67,7 @@
         "model": "gpt-4o-mini-2024-07-18",
         "output": [
           {
-            "id": "msg_688c4e87c758819ab9d66221ce036859092f9aa1c0457f74",
+            "id": "msg_68a7a6ccfb648193b5c41ba7c722b54d0af479608bce0e5e",
             "type": "message",
             "status": "incomplete",
             "content": [
@@ -76,7 +75,7 @@
                 "type": "output_text",
                 "annotations": [],
                 "logprobs": [],
-                "text": "**1. Mango Bliss**  \nGolden sunlit flesh,  \nJuice drips down like sweet"
+                "text": "**Mango Sunlight**  \nGolden skin aglow,  \nJuice drips like summer rain"
               }
             ],
             "role": "assistant"
@@ -96,7 +95,8 @@
         "text": {
           "format": {
             "type": "text"
-          }
+          },
+          "verbosity": "medium"
         },
         "tool_choice": "auto",
         "tools": [],

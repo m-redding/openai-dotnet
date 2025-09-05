@@ -8,7 +8,7 @@
         "Authorization": "Sanitized",
         "Content-Length": "36454",
         "Content-Type": "application/json",
-        "User-Agent": "OpenAI/2.2.0 (.NET 9.0.7; Microsoft Windows 10.0.26100)"
+        "User-Agent": "OpenAI/2.3.0 (.NET 9.0.8; Microsoft Windows 10.0.26100)"
       },
       "RequestBody": {
         "model": "gpt-4o-mini",
@@ -34,32 +34,31 @@
       "ResponseHeaders": {
         "Alt-Svc": "h3=\":443\"",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "9682e1a14f887609-SEA",
+        "CF-RAY": "972dc9dd7bf29b60-SEA",
         "Connection": "keep-alive",
-        "Content-Length": "1169",
+        "Content-Length": "1570",
         "Content-Type": "application/json",
-        "Date": "Fri, 01 Aug 2025 05:19:36 GMT",
+        "Date": "Thu, 21 Aug 2025 23:07:47 GMT",
         "openai-organization": "Sanitized",
-        "openai-processing-ms": "1753",
+        "openai-processing-ms": "1598",
         "openai-project": "Sanitized",
         "openai-version": "2020-10-01",
         "Server": "cloudflare",
         "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
         "X-Content-Type-Options": "nosniff",
-        "x-envoy-decorator-operation": "tasksapi.openai.svc.cluster.local:8081/*",
-        "x-envoy-upstream-service-time": "1760",
+        "x-envoy-upstream-service-time": "1601",
         "x-ratelimit-limit-requests": "30000",
         "x-ratelimit-limit-tokens": "150000000",
         "x-ratelimit-remaining-requests": "29999",
-        "x-ratelimit-remaining-tokens": "149999947",
+        "x-ratelimit-remaining-tokens": "149999950",
         "x-ratelimit-reset-requests": "2ms",
         "x-ratelimit-reset-tokens": "0s",
-        "X-Request-ID": "req_e3944426e260e2bd6bb80cfa866dd2d2"
+        "X-Request-ID": "Sanitized"
       },
       "ResponseBody": {
-        "id": "Sanitized",
+        "id": "resp_68a7a6c23b408193870139af05d2e657011f63fbc119e77c",
         "object": "response",
-        "created_at": 1754025574,
+        "created_at": 1755817666,
         "status": "completed",
         "background": false,
         "error": null,
@@ -70,7 +69,7 @@
         "model": "gpt-4o-mini-2024-07-18",
         "output": [
           {
-            "id": "msg_688c4e67527c819babba4e401a20c7ee0ce0047eaad282b5",
+            "id": "msg_68a7a6c2ec748193a39f7a8c5f2e4617011f63fbc119e77c",
             "type": "message",
             "status": "completed",
             "content": [
@@ -78,7 +77,7 @@
                 "type": "output_text",
                 "annotations": [],
                 "logprobs": [],
-                "text": "Got it! Since Travis's favorite food is pizza, you should order pizza for him. If you have information about other individuals or their preferences, please share that, and I can help you decide on food for them as well!"
+                "text": "Based on the information that Travis's favorite food is pizza, you should consider ordering pizza for him. If you have details about other people's preferences, I can help you decide what to order for them too!"
               }
             ],
             "role": "assistant"
@@ -98,7 +97,8 @@
         "text": {
           "format": {
             "type": "text"
-          }
+          },
+          "verbosity": "medium"
         },
         "tool_choice": "auto",
         "tools": [],
@@ -110,11 +110,11 @@
           "input_tokens_details": {
             "cached_tokens": 0
           },
-          "output_tokens": 47,
+          "output_tokens": 42,
           "output_tokens_details": {
             "reasoning_tokens": 0
           },
-          "total_tokens": 79
+          "total_tokens": 74
         },
         "user": null,
         "metadata": {}

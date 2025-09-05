@@ -8,7 +8,7 @@
         "Authorization": "Sanitized",
         "Content-Length": "636",
         "Content-Type": "application/json",
-        "User-Agent": "OpenAI/2.2.0 (.NET 9.0.7; Microsoft Windows 10.0.26100)"
+        "User-Agent": "OpenAI/2.3.0 (.NET 9.0.8; Microsoft Windows 10.0.26100)"
       },
       "RequestBody": {
         "model": "gpt-4o-mini",
@@ -60,32 +60,31 @@
       "ResponseHeaders": {
         "Alt-Svc": "h3=\":443\"",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "9682e25a8935defd-SEA",
+        "CF-RAY": "972dca165eeb9b60-SEA",
         "Connection": "keep-alive",
-        "Content-Length": "1345",
+        "Content-Length": "1970",
         "Content-Type": "application/json",
-        "Date": "Fri, 01 Aug 2025 05:20:05 GMT",
+        "Date": "Thu, 21 Aug 2025 23:07:56 GMT",
         "openai-organization": "Sanitized",
-        "openai-processing-ms": "792",
+        "openai-processing-ms": "1099",
         "openai-project": "Sanitized",
         "openai-version": "2020-10-01",
         "Server": "cloudflare",
         "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
         "X-Content-Type-Options": "nosniff",
-        "x-envoy-decorator-operation": "tasksapi.openai.svc.cluster.local:8081/*",
-        "x-envoy-upstream-service-time": "801",
+        "x-envoy-upstream-service-time": "1110",
         "x-ratelimit-limit-requests": "30000",
         "x-ratelimit-limit-tokens": "150000000",
         "x-ratelimit-remaining-requests": "29999",
         "x-ratelimit-remaining-tokens": "149999697",
         "x-ratelimit-reset-requests": "2ms",
         "x-ratelimit-reset-tokens": "0s",
-        "X-Request-ID": "req_14858b8705031be90278aba73989047d"
+        "X-Request-ID": "Sanitized"
       },
       "ResponseBody": {
-        "id": "Sanitized",
+        "id": "resp_68a7a6cb5bb08195bc2973477f12f87106353cdb12ed1f08",
         "object": "response",
-        "created_at": 1754025604,
+        "created_at": 1755817675,
         "status": "completed",
         "background": false,
         "error": null,
@@ -96,11 +95,11 @@
         "model": "gpt-4o-mini-2024-07-18",
         "output": [
           {
-            "id": "fc_688c4e84c548819b9884ad9607a496bd0dd32d9d89d19c77",
+            "id": "fc_68a7a6cc162481958bb957e643e9b1b606353cdb12ed1f08",
             "type": "function_call",
             "status": "completed",
             "arguments": "{\"location\":\"San Francisco, CA\"}",
-            "call_id": "call_pK15VfPiR0xewgJMPcQKGaw8",
+            "call_id": "call_T4WzNGLJqLLGwLoEVom2EW97",
             "name": "get_weather_at_location"
           }
         ],
@@ -118,7 +117,8 @@
         "text": {
           "format": {
             "type": "text"
-          }
+          },
+          "verbosity": "medium"
         },
         "tool_choice": {
           "type": "function",

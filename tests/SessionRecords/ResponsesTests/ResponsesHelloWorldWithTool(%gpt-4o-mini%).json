@@ -8,7 +8,7 @@
         "Authorization": "Sanitized",
         "Content-Length": "399",
         "Content-Type": "application/json",
-        "User-Agent": "OpenAI/2.2.0 (.NET 9.0.7; Microsoft Windows 10.0.26100)"
+        "User-Agent": "OpenAI/2.3.0 (.NET 9.0.8; Microsoft Windows 10.0.26100)"
       },
       "RequestBody": {
         "model": "gpt-4o-mini",
@@ -46,32 +46,31 @@
       "ResponseHeaders": {
         "Alt-Svc": "h3=\":443\"",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "9682e058ab18defd-SEA",
+        "CF-RAY": "972dc951196c9b60-SEA",
         "Connection": "keep-alive",
-        "Content-Length": "1174",
+        "Content-Length": "1645",
         "Content-Type": "application/json",
-        "Date": "Fri, 01 Aug 2025 05:18:43 GMT",
+        "Date": "Thu, 21 Aug 2025 23:07:24 GMT",
         "openai-organization": "Sanitized",
-        "openai-processing-ms": "1022",
+        "openai-processing-ms": "791",
         "openai-project": "Sanitized",
         "openai-version": "2020-10-01",
         "Server": "cloudflare",
         "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
         "X-Content-Type-Options": "nosniff",
-        "x-envoy-decorator-operation": "tasksapi.openai.svc.cluster.local:8081/*",
-        "x-envoy-upstream-service-time": "1031",
+        "x-envoy-upstream-service-time": "795",
         "x-ratelimit-limit-requests": "30000",
         "x-ratelimit-limit-tokens": "150000000",
         "x-ratelimit-remaining-requests": "29999",
         "x-ratelimit-remaining-tokens": "149999735",
         "x-ratelimit-reset-requests": "2ms",
         "x-ratelimit-reset-tokens": "0s",
-        "X-Request-ID": "req_0a55700a9c38b82ee87f6e1a4700e601"
+        "X-Request-ID": "Sanitized"
       },
       "ResponseBody": {
-        "id": "Sanitized",
+        "id": "resp_68a7a6abc1648195b3e5f3cb2c97451a09d2d3209a27d81c",
         "object": "response",
-        "created_at": 1754025522,
+        "created_at": 1755817643,
         "status": "completed",
         "background": false,
         "error": null,
@@ -82,11 +81,11 @@
         "model": "gpt-4o-mini-2024-07-18",
         "output": [
           {
-            "id": "fc_688c4e32e9cc819bbf16936d0d9d74e603a21a4ef7a3f7a8",
+            "id": "fc_68a7a6ac54688195bb0e4acbb647e00e09d2d3209a27d81c",
             "type": "function_call",
             "status": "completed",
             "arguments": "{\"time_of_day\":\"morning\"}",
-            "call_id": "call_g5yaSjXF1ztG74YBf0RRWTe0",
+            "call_id": "call_USqA9ogMfrljaVgR5XJ2TF8L",
             "name": "get_custom_greeting"
           }
         ],
@@ -104,7 +103,8 @@
         "text": {
           "format": {
             "type": "text"
-          }
+          },
+          "verbosity": "medium"
         },
         "tool_choice": "auto",
         "tools": [

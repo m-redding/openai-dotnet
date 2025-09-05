@@ -19,13 +19,11 @@ namespace OpenAI.Tests.Responses;
 
 #pragma warning disable OPENAICUA001
 
-[TestFixture(true)]
-[TestFixture(false)]
 [Parallelizable(ParallelScope.Fixtures)]
 [Category("Responses")]
-public partial class ResponsesTests : OpenAIRecordedTestBase
+public partial class ResponsesTests : OpenAIRecordedTestBase        
 {
-    public ResponsesTests(bool isAsync) : base(isAsync, RecordedTestMode.Record)
+    public ResponsesTests(bool isAsync) : base(isAsync, RecordedTestMode.Playback)
     {
     }
 
@@ -74,6 +72,7 @@ public partial class ResponsesTests : OpenAIRecordedTestBase
     }
 
     [Test]
+    [LiveOnly]
     public async Task FileSearch()
     {
         OpenAIFileClient fileClient = GetProxiedOpenAIClient<OpenAIFileClient>(TestScenario.Files);
@@ -526,7 +525,7 @@ public partial class ResponsesTests : OpenAIRecordedTestBase
     public async Task FileInputFromIdWorks()
     {
         OpenAIResponseClient client = GetTestClient();
-        OpenAIFileClient fileClient = GetTestClient<OpenAIFileClient>(TestScenario.Files);
+        OpenAIFileClient fileClient = GetProxiedOpenAIClient<OpenAIFileClient>(TestScenario.Files);
         string filePath = Path.Join("Assets", "files_travis_favorite_food.pdf");
 
         OpenAIFile newFileToUse = await fileClient.UploadFileAsync(

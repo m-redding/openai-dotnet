@@ -8,7 +8,7 @@
         "Authorization": "Sanitized",
         "Content-Length": "526",
         "Content-Type": "application/json",
-        "User-Agent": "OpenAI/2.2.0 (.NET 9.0.7; Microsoft Windows 10.0.26100)"
+        "User-Agent": "OpenAI/2.3.0 (.NET 9.0.8; Microsoft Windows 10.0.26100)"
       },
       "RequestBody": {
         "model": "gpt-4o-mini",
@@ -60,32 +60,31 @@
       "ResponseHeaders": {
         "Alt-Svc": "h3=\":443\"",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "9682e283080edefd-SEA",
+        "CF-RAY": "972dca24ab3c9b60-SEA",
         "Connection": "keep-alive",
-        "Content-Length": "1039",
+        "Content-Length": "1447",
         "Content-Type": "application/json",
-        "Date": "Fri, 01 Aug 2025 05:20:11 GMT",
+        "Date": "Thu, 21 Aug 2025 23:07:58 GMT",
         "openai-organization": "Sanitized",
-        "openai-processing-ms": "727",
+        "openai-processing-ms": "740",
         "openai-project": "Sanitized",
         "openai-version": "2020-10-01",
         "Server": "cloudflare",
         "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
         "X-Content-Type-Options": "nosniff",
-        "x-envoy-decorator-operation": "tasksapi.openai.svc.cluster.local:8081/*",
-        "x-envoy-upstream-service-time": "735",
+        "x-envoy-upstream-service-time": "745",
         "x-ratelimit-limit-requests": "30000",
         "x-ratelimit-limit-tokens": "150000000",
         "x-ratelimit-remaining-requests": "29999",
         "x-ratelimit-remaining-tokens": "149999922",
         "x-ratelimit-reset-requests": "2ms",
         "x-ratelimit-reset-tokens": "0s",
-        "X-Request-ID": "req_3723680afab097c637a8d2d7192aca74"
+        "X-Request-ID": "Sanitized"
       },
       "ResponseBody": {
-        "id": "Sanitized",
+        "id": "resp_68a7a6cd9fe48194a7c41c7a0f852bfb06a6da720a9e1af9",
         "object": "response",
-        "created_at": 1754025610,
+        "created_at": 1755817677,
         "status": "completed",
         "background": false,
         "error": null,
@@ -96,7 +95,7 @@
         "model": "gpt-4o-mini-2024-07-18",
         "output": [
           {
-            "id": "msg_688c4e8b10b481988635616d25205f2f037a5ac0381fd4b1",
+            "id": "msg_68a7a6cdf940819492fa6343b37d521406a6da720a9e1af9",
             "type": "message",
             "status": "completed",
             "content": [
@@ -104,7 +103,7 @@
                 "type": "output_text",
                 "annotations": [],
                 "logprobs": [],
-                "text": "Your name is Bob, and I mentioned it was a nice, sunny day! How can I assist you further?"
+                "text": "Your name is Bob, and I mentioned it was a nice, sunny day! How can I assist you today?"
               }
             ],
             "role": "assistant"
@@ -124,7 +123,8 @@
         "text": {
           "format": {
             "type": "text"
-          }
+          },
+          "verbosity": "medium"
         },
         "tool_choice": "auto",
         "tools": [],

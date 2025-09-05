@@ -1,0 +1,647 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://api.openai.com/v1/vector_stores",
+      "RequestMethod": "POST",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "30",
+        "Content-Type": "application/json",
+        "User-Agent": "OpenAI/2.3.0 (.NET 9.0.8; Microsoft Windows 10.0.26100)"
+      },
+      "RequestBody": {
+        "name": "Test Vector Store 0"
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Alt-Svc": "h3=\":443\"",
+        "cf-cache-status": "DYNAMIC",
+        "CF-RAY": "97564f025a551fa1-SEA",
+        "Connection": "keep-alive",
+        "Content-Length": "421",
+        "Content-Type": "application/json",
+        "Date": "Tue, 26 Aug 2025 21:09:10 GMT",
+        "openai-organization": "Sanitized",
+        "openai-processing-ms": "171",
+        "openai-project": "Sanitized",
+        "openai-version": "2020-10-01",
+        "Server": "cloudflare",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "x-envoy-upstream-service-time": "175",
+        "X-Request-ID": "Sanitized"
+      },
+      "ResponseBody": {
+        "id": "vs_68ae2276336481918767e6439055b1bc",
+        "object": "vector_store",
+        "created_at": 1756242550,
+        "name": "Test Vector Store 0",
+        "description": null,
+        "usage_bytes": 0,
+        "file_counts": {
+          "in_progress": 0,
+          "completed": 0,
+          "failed": 0,
+          "cancelled": 0,
+          "total": 0
+        },
+        "status": "completed",
+        "expires_after": null,
+        "expires_at": null,
+        "last_active_at": 1756242550,
+        "metadata": {}
+      }
+    },
+    {
+      "RequestUri": "https://api.openai.com/v1/vector_stores",
+      "RequestMethod": "POST",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "30",
+        "Content-Type": "application/json",
+        "User-Agent": "OpenAI/2.3.0 (.NET 9.0.8; Microsoft Windows 10.0.26100)"
+      },
+      "RequestBody": {
+        "name": "Test Vector Store 1"
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Alt-Svc": "h3=\":443\"",
+        "cf-cache-status": "DYNAMIC",
+        "CF-RAY": "97564f05692f1fa1-SEA",
+        "Connection": "keep-alive",
+        "Content-Length": "421",
+        "Content-Type": "application/json",
+        "Date": "Tue, 26 Aug 2025 21:09:10 GMT",
+        "openai-organization": "Sanitized",
+        "openai-processing-ms": "255",
+        "openai-project": "Sanitized",
+        "openai-version": "2020-10-01",
+        "Server": "cloudflare",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "x-envoy-upstream-service-time": "269",
+        "X-Request-ID": "Sanitized"
+      },
+      "ResponseBody": {
+        "id": "vs_68ae2276b6cc8191982548f156459b70",
+        "object": "vector_store",
+        "created_at": 1756242550,
+        "name": "Test Vector Store 1",
+        "description": null,
+        "usage_bytes": 0,
+        "file_counts": {
+          "in_progress": 0,
+          "completed": 0,
+          "failed": 0,
+          "cancelled": 0,
+          "total": 0
+        },
+        "status": "completed",
+        "expires_after": null,
+        "expires_at": null,
+        "last_active_at": 1756242550,
+        "metadata": {}
+      }
+    },
+    {
+      "RequestUri": "https://api.openai.com/v1/vector_stores",
+      "RequestMethod": "POST",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "30",
+        "Content-Type": "application/json",
+        "User-Agent": "OpenAI/2.3.0 (.NET 9.0.8; Microsoft Windows 10.0.26100)"
+      },
+      "RequestBody": {
+        "name": "Test Vector Store 2"
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Alt-Svc": "h3=\":443\"",
+        "cf-cache-status": "DYNAMIC",
+        "CF-RAY": "97564f08c86a1fa1-SEA",
+        "Connection": "keep-alive",
+        "Content-Length": "421",
+        "Content-Type": "application/json",
+        "Date": "Tue, 26 Aug 2025 21:09:11 GMT",
+        "openai-organization": "Sanitized",
+        "openai-processing-ms": "161",
+        "openai-project": "Sanitized",
+        "openai-version": "2020-10-01",
+        "Server": "cloudflare",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "x-envoy-upstream-service-time": "164",
+        "X-Request-ID": "Sanitized"
+      },
+      "ResponseBody": {
+        "id": "vs_68ae22773870819195c4ff748de791d1",
+        "object": "vector_store",
+        "created_at": 1756242551,
+        "name": "Test Vector Store 2",
+        "description": null,
+        "usage_bytes": 0,
+        "file_counts": {
+          "in_progress": 0,
+          "completed": 0,
+          "failed": 0,
+          "cancelled": 0,
+          "total": 0
+        },
+        "status": "completed",
+        "expires_after": null,
+        "expires_at": null,
+        "last_active_at": 1756242551,
+        "metadata": {}
+      }
+    },
+    {
+      "RequestUri": "https://api.openai.com/v1/vector_stores",
+      "RequestMethod": "POST",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "30",
+        "Content-Type": "application/json",
+        "User-Agent": "OpenAI/2.3.0 (.NET 9.0.8; Microsoft Windows 10.0.26100)"
+      },
+      "RequestBody": {
+        "name": "Test Vector Store 3"
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Alt-Svc": "h3=\":443\"",
+        "cf-cache-status": "DYNAMIC",
+        "CF-RAY": "97564f0c0f851fa1-SEA",
+        "Connection": "keep-alive",
+        "Content-Length": "421",
+        "Content-Type": "application/json",
+        "Date": "Tue, 26 Aug 2025 21:09:11 GMT",
+        "openai-organization": "Sanitized",
+        "openai-processing-ms": "207",
+        "openai-project": "Sanitized",
+        "openai-version": "2020-10-01",
+        "Server": "cloudflare",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "x-envoy-upstream-service-time": "211",
+        "X-Request-ID": "Sanitized"
+      },
+      "ResponseBody": {
+        "id": "vs_68ae2277c1dc819198d01e97f8b3416c",
+        "object": "vector_store",
+        "created_at": 1756242551,
+        "name": "Test Vector Store 3",
+        "description": null,
+        "usage_bytes": 0,
+        "file_counts": {
+          "in_progress": 0,
+          "completed": 0,
+          "failed": 0,
+          "cancelled": 0,
+          "total": 0
+        },
+        "status": "completed",
+        "expires_after": null,
+        "expires_at": null,
+        "last_active_at": 1756242551,
+        "metadata": {}
+      }
+    },
+    {
+      "RequestUri": "https://api.openai.com/v1/vector_stores",
+      "RequestMethod": "POST",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "30",
+        "Content-Type": "application/json",
+        "User-Agent": "OpenAI/2.3.0 (.NET 9.0.8; Microsoft Windows 10.0.26100)"
+      },
+      "RequestBody": {
+        "name": "Test Vector Store 4"
+      },
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Alt-Svc": "h3=\":443\"",
+        "cf-cache-status": "DYNAMIC",
+        "CF-RAY": "97564f0eed911fa1-SEA",
+        "Connection": "keep-alive",
+        "Content-Length": "421",
+        "Content-Type": "application/json",
+        "Date": "Tue, 26 Aug 2025 21:09:12 GMT",
+        "openai-organization": "Sanitized",
+        "openai-processing-ms": "199",
+        "openai-project": "Sanitized",
+        "openai-version": "2020-10-01",
+        "Server": "cloudflare",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "x-envoy-upstream-service-time": "203",
+        "X-Request-ID": "Sanitized"
+      },
+      "ResponseBody": {
+        "id": "vs_68ae227836b081919a4d3e181f4ebce5",
+        "object": "vector_store",
+        "created_at": 1756242552,
+        "name": "Test Vector Store 4",
+        "description": null,
+        "usage_bytes": 0,
+        "file_counts": {
+          "in_progress": 0,
+          "completed": 0,
+          "failed": 0,
+          "cancelled": 0,
+          "total": 0
+        },
+        "status": "completed",
+        "expires_after": null,
+        "expires_at": null,
+        "last_active_at": 1756242552,
+        "metadata": {}
+      }
+    },
+    {
+      "RequestUri": "https://api.openai.com/v1/vector_stores?order=desc",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "User-Agent": "OpenAI/2.3.0 (.NET 9.0.8; Microsoft Windows 10.0.26100)"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Alt-Svc": "h3=\":443\"",
+        "cf-cache-status": "DYNAMIC",
+        "CF-RAY": "97564f30a8db1fa1-SEA",
+        "Connection": "keep-alive",
+        "Content-Length": "8570",
+        "Content-Type": "application/json",
+        "Date": "Tue, 26 Aug 2025 21:09:18 GMT",
+        "openai-organization": "Sanitized",
+        "openai-processing-ms": "547",
+        "openai-project": "Sanitized",
+        "openai-version": "2020-10-01",
+        "Server": "cloudflare",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "x-envoy-upstream-service-time": "550",
+        "X-Request-ID": "Sanitized"
+      },
+      "ResponseBody": {
+        "object": "list",
+        "data": [
+          {
+            "id": "vs_68ae227836b081919a4d3e181f4ebce5",
+            "object": "vector_store",
+            "created_at": 1756242552,
+            "name": "Test Vector Store 4",
+            "description": null,
+            "usage_bytes": 0,
+            "file_counts": {
+              "in_progress": 0,
+              "completed": 0,
+              "failed": 0,
+              "cancelled": 0,
+              "total": 0
+            },
+            "status": "completed",
+            "expires_after": null,
+            "expires_at": null,
+            "last_active_at": 1756242552,
+            "metadata": {}
+          },
+          {
+            "id": "vs_68ae22773870819195c4ff748de791d1",
+            "object": "vector_store",
+            "created_at": 1756242551,
+            "name": "Test Vector Store 2",
+            "description": null,
+            "usage_bytes": 0,
+            "file_counts": {
+              "in_progress": 0,
+              "completed": 0,
+              "failed": 0,
+              "cancelled": 0,
+              "total": 0
+            },
+            "status": "completed",
+            "expires_after": null,
+            "expires_at": null,
+            "last_active_at": 1756242551,
+            "metadata": {}
+          },
+          {
+            "id": "vs_68ae2276b6cc8191982548f156459b70",
+            "object": "vector_store",
+            "created_at": 1756242550,
+            "name": "Test Vector Store 1",
+            "description": null,
+            "usage_bytes": 0,
+            "file_counts": {
+              "in_progress": 0,
+              "completed": 0,
+              "failed": 0,
+              "cancelled": 0,
+              "total": 0
+            },
+            "status": "completed",
+            "expires_after": null,
+            "expires_at": null,
+            "last_active_at": 1756242550,
+            "metadata": {}
+          },
+          {
+            "id": "vs_68ae2276336481918767e6439055b1bc",
+            "object": "vector_store",
+            "created_at": 1756242550,
+            "name": "Test Vector Store 0",
+            "description": null,
+            "usage_bytes": 0,
+            "file_counts": {
+              "in_progress": 0,
+              "completed": 0,
+              "failed": 0,
+              "cancelled": 0,
+              "total": 0
+            },
+            "status": "completed",
+            "expires_after": null,
+            "expires_at": null,
+            "last_active_at": 1756242550,
+            "metadata": {}
+          },
+          {
+            "id": "vs_68ae1c3cd8e4819188ef9759d93f1b93",
+            "object": "vector_store",
+            "created_at": 1756240956,
+            "name": "Test Vector Store 9",
+            "description": null,
+            "usage_bytes": 0,
+            "file_counts": {
+              "in_progress": 0,
+              "completed": 0,
+              "failed": 0,
+              "cancelled": 0,
+              "total": 0
+            },
+            "status": "completed",
+            "expires_after": null,
+            "expires_at": null,
+            "last_active_at": 1756240956,
+            "metadata": {}
+          },
+          {
+            "id": "vs_68ae1c3c80dc8191837fca3198ca44b2",
+            "object": "vector_store",
+            "created_at": 1756240956,
+            "name": "Test Vector Store 8",
+            "description": null,
+            "usage_bytes": 0,
+            "file_counts": {
+              "in_progress": 0,
+              "completed": 0,
+              "failed": 0,
+              "cancelled": 0,
+              "total": 0
+            },
+            "status": "completed",
+            "expires_after": null,
+            "expires_at": null,
+            "last_active_at": 1756240956,
+            "metadata": {}
+          },
+          {
+            "id": "vs_68a4d547333881918f8ed456f3e8fe11",
+            "object": "vector_store",
+            "created_at": 1755632967,
+            "name": null,
+            "description": null,
+            "usage_bytes": 10450,
+            "file_counts": {
+              "in_progress": 0,
+              "completed": 10,
+              "failed": 0,
+              "cancelled": 0,
+              "total": 10
+            },
+            "status": "completed",
+            "expires_after": null,
+            "expires_at": null,
+            "last_active_at": 1755632975,
+            "metadata": {}
+          },
+          {
+            "id": "vs_68a4cf8a92208191baa0721c994cb55e",
+            "object": "vector_store",
+            "created_at": 1755631498,
+            "name": null,
+            "description": null,
+            "usage_bytes": 2090,
+            "file_counts": {
+              "in_progress": 0,
+              "completed": 2,
+              "failed": 8,
+              "cancelled": 0,
+              "total": 10
+            },
+            "status": "completed",
+            "expires_after": null,
+            "expires_at": null,
+            "last_active_at": 1755631503,
+            "metadata": {}
+          },
+          {
+            "id": "vs_68a4c82438a48191a44cae8227c6c5a3",
+            "object": "vector_store",
+            "created_at": 1755629604,
+            "name": null,
+            "description": null,
+            "usage_bytes": 3135,
+            "file_counts": {
+              "in_progress": 0,
+              "completed": 3,
+              "failed": 5,
+              "cancelled": 0,
+              "total": 8
+            },
+            "status": "completed",
+            "expires_after": null,
+            "expires_at": null,
+            "last_active_at": 1755629619,
+            "metadata": {}
+          },
+          {
+            "id": "vs_68a4c6ba30408191add505b3a8f53938",
+            "object": "vector_store",
+            "created_at": 1755629242,
+            "name": null,
+            "description": null,
+            "usage_bytes": 7315,
+            "file_counts": {
+              "in_progress": 0,
+              "completed": 7,
+              "failed": 3,
+              "cancelled": 0,
+              "total": 10
+            },
+            "status": "completed",
+            "expires_after": null,
+            "expires_at": null,
+            "last_active_at": 1755629246,
+            "metadata": {}
+          },
+          {
+            "id": "vs_68a4c2fbd6ac8191ba5e201b35dbb411",
+            "object": "vector_store",
+            "created_at": 1755628283,
+            "name": null,
+            "description": null,
+            "usage_bytes": 5225,
+            "file_counts": {
+              "in_progress": 0,
+              "completed": 5,
+              "failed": 0,
+              "cancelled": 0,
+              "total": 5
+            },
+            "status": "completed",
+            "expires_after": null,
+            "expires_at": null,
+            "last_active_at": 1755628283,
+            "metadata": {}
+          },
+          {
+            "id": "vs_68a3a845d8548191a18ed9bab2f4f95f",
+            "object": "vector_store",
+            "created_at": 1755555909,
+            "name": null,
+            "description": null,
+            "usage_bytes": 5225,
+            "file_counts": {
+              "in_progress": 0,
+              "completed": 5,
+              "failed": 0,
+              "cancelled": 0,
+              "total": 5
+            },
+            "status": "completed",
+            "expires_after": null,
+            "expires_at": null,
+            "last_active_at": 1755555915,
+            "metadata": {}
+          },
+          {
+            "id": "vs_68a3a7022e448191b3c850936c53f850",
+            "object": "vector_store",
+            "created_at": 1755555586,
+            "name": null,
+            "description": null,
+            "usage_bytes": 5225,
+            "file_counts": {
+              "in_progress": 0,
+              "completed": 5,
+              "failed": 0,
+              "cancelled": 0,
+              "total": 5
+            },
+            "status": "completed",
+            "expires_after": null,
+            "expires_at": null,
+            "last_active_at": 1755555594,
+            "metadata": {}
+          },
+          {
+            "id": "vs_68a39c4a22008191a917cfb0f7ca1852",
+            "object": "vector_store",
+            "created_at": 1755552842,
+            "name": null,
+            "description": null,
+            "usage_bytes": 0,
+            "file_counts": {
+              "in_progress": 0,
+              "completed": 0,
+              "failed": 0,
+              "cancelled": 0,
+              "total": 0
+            },
+            "status": "completed",
+            "expires_after": null,
+            "expires_at": null,
+            "last_active_at": 1755552842,
+            "metadata": {}
+          },
+          {
+            "id": "vs_68a39c496a908191bdef9985caf650b3",
+            "object": "vector_store",
+            "created_at": 1755552841,
+            "name": "Test Vector Store 0",
+            "description": null,
+            "usage_bytes": 0,
+            "file_counts": {
+              "in_progress": 0,
+              "completed": 0,
+              "failed": 0,
+              "cancelled": 0,
+              "total": 0
+            },
+            "status": "completed",
+            "expires_after": null,
+            "expires_at": null,
+            "last_active_at": 1755552841,
+            "metadata": {}
+          },
+          {
+            "id": "vs_68a39c48979c819199dc325b11def7aa",
+            "object": "vector_store",
+            "created_at": 1755552840,
+            "name": null,
+            "description": null,
+            "usage_bytes": 0,
+            "file_counts": {
+              "in_progress": 0,
+              "completed": 0,
+              "failed": 0,
+              "cancelled": 0,
+              "total": 0
+            },
+            "status": "completed",
+            "expires_after": null,
+            "expires_at": null,
+            "last_active_at": 1755552840,
+            "metadata": {}
+          },
+          {
+            "id": "vs_68a39c4850d88191800981679ab68765",
+            "object": "vector_store",
+            "created_at": 1755552840,
+            "name": null,
+            "description": null,
+            "usage_bytes": 0,
+            "file_counts": {
+              "in_progress": 0,
+              "completed": 0,
+              "failed": 0,
+              "cancelled": 0,
+              "total": 0
+            },
+            "status": "completed",
+            "expires_after": null,
+            "expires_at": null,
+            "last_active_at": 1755552840,
+            "metadata": {}
+          }
+        ],
+        "first_id": "vs_68ae227836b081919a4d3e181f4ebce5",
+        "last_id": "vs_68a39c4850d88191800981679ab68765",
+        "has_more": true
+      }
+    }
+  ],
+  "Variables": {}
+}

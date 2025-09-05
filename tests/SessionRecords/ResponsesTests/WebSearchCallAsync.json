@@ -8,7 +8,7 @@
         "Authorization": "Sanitized",
         "Content-Length": "236",
         "Content-Type": "application/json",
-        "User-Agent": "OpenAI/2.2.0 (.NET 9.0.7; Microsoft Windows 10.0.26100)"
+        "User-Agent": "OpenAI/2.3.0 (.NET 9.0.8; Microsoft Windows 10.0.26100)"
       },
       "RequestBody": {
         "model": "gpt-4o-mini",
@@ -37,26 +37,25 @@
       "ResponseHeaders": {
         "Alt-Svc": "h3=\":443\"",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "9682e3154fb6defd-SEA",
+        "CF-RAY": "972dca6f4a1f681b-SEA",
         "Connection": "keep-alive",
-        "Content-Length": "4570",
+        "Content-Length": "7915",
         "Content-Type": "application/json",
-        "Date": "Fri, 01 Aug 2025 05:20:40 GMT",
+        "Date": "Thu, 21 Aug 2025 23:08:16 GMT",
         "openai-organization": "Sanitized",
-        "openai-processing-ms": "5989",
+        "openai-processing-ms": "6557",
         "openai-project": "Sanitized",
         "openai-version": "2020-10-01",
         "Server": "cloudflare",
         "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
         "X-Content-Type-Options": "nosniff",
-        "x-envoy-decorator-operation": "tasksapi.openai.svc.cluster.local:8081/*",
-        "x-envoy-upstream-service-time": "5997",
-        "X-Request-ID": "req_6548094d34216d43fb94f8ed69ce6217"
+        "x-envoy-upstream-service-time": "6562",
+        "X-Request-ID": "Sanitized"
       },
       "ResponseBody": {
-        "id": "Sanitized",
+        "id": "resp_68a7a6d98fbc8196abe171ab4c496d33083186f88afa5f0c",
         "object": "response",
-        "created_at": 1754025634,
+        "created_at": 1755817689,
         "status": "completed",
         "background": false,
         "error": null,
@@ -67,7 +66,7 @@
         "model": "gpt-4o-mini-2024-07-18",
         "output": [
           {
-            "id": "ws_688c4ea2416c8199820a7841401df5a70ba85daa3eb7c871",
+            "id": "ws_68a7a6d9a3b48196bb69375d10cbc671083186f88afa5f0c",
             "type": "web_search_call",
             "status": "completed",
             "action": {
@@ -76,7 +75,7 @@
             }
           },
           {
-            "id": "msg_688c4ea4cd6c8199861ce5dc23ef64ff0ba85daa3eb7c871",
+            "id": "msg_68a7a6db3f30819695bba5b4509b4022083186f88afa5f0c",
             "type": "message",
             "status": "completed",
             "content": [
@@ -85,35 +84,56 @@
                 "annotations": [
                   {
                     "type": "url_citation",
-                    "end_index": 631,
-                    "start_index": 488,
-                    "title": "7 Positive Environmental News Stories That Give Us Hope In 2025 — Home Planet By Grove",
-                    "url": "https://homeplanet.grove.co/blog-posts/positive-environmental-news-stories-that-give-us-hope-in-2025?utm_source=openai"
+                    "end_index": 878,
+                    "start_index": 796,
+                    "title": "The Christian Science Monitor Daily for August 21, 2025",
+                    "url": "https://www.csmonitor.com/Daily/2025/20250821?utm_source=openai"
                   },
                   {
                     "type": "url_citation",
-                    "end_index": 1056,
-                    "start_index": 913,
-                    "title": "7 Positive Environmental News Stories That Give Us Hope In 2025 — Home Planet By Grove",
-                    "url": "https://homeplanet.grove.co/blog-posts/positive-environmental-news-stories-that-give-us-hope-in-2025?utm_source=openai"
-                  },
-                  {
-                    "type": "url_citation",
-                    "end_index": 1563,
-                    "start_index": 1420,
-                    "title": "7 Positive Environmental News Stories That Give Us Hope In 2025 — Home Planet By Grove",
-                    "url": "https://homeplanet.grove.co/blog-posts/positive-environmental-news-stories-that-give-us-hope-in-2025?utm_source=openai"
+                    "end_index": 1449,
+                    "start_index": 1346,
+                    "title": "Positive News Highlights | AI, PFAS Breakthroughs & More — August 2025 — Podego",
+                    "url": "https://www.podego.com/insights/august-2025-good-news-ai-pfas-stories?utm_source=openai"
                   },
                   {
                     "type": "url_citation",
                     "end_index": 1994,
-                    "start_index": 1851,
-                    "title": "7 Positive Environmental News Stories That Give Us Hope In 2025 — Home Planet By Grove",
-                    "url": "https://homeplanet.grove.co/blog-posts/positive-environmental-news-stories-that-give-us-hope-in-2025?utm_source=openai"
+                    "start_index": 1891,
+                    "title": "Positive News Highlights | AI, PFAS Breakthroughs & More — August 2025 — Podego",
+                    "url": "https://www.podego.com/insights/august-2025-good-news-ai-pfas-stories?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 2551,
+                    "start_index": 2448,
+                    "title": "Positive News Highlights | AI, PFAS Breakthroughs & More — August 2025 — Podego",
+                    "url": "https://www.podego.com/insights/august-2025-good-news-ai-pfas-stories?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 3197,
+                    "start_index": 3094,
+                    "title": "Positive News Highlights | AI, PFAS Breakthroughs & More — August 2025 — Podego",
+                    "url": "https://www.podego.com/insights/august-2025-good-news-ai-pfas-stories?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 3374,
+                    "start_index": 3252,
+                    "title": "The Christian Science Monitor Daily for August 21, 2025",
+                    "url": "https://www.csmonitor.com/Daily/2025/20250821?utm_source=openai"
+                  },
+                  {
+                    "type": "url_citation",
+                    "end_index": 3547,
+                    "start_index": 3377,
+                    "title": "Positive News Highlights | AI, PFAS Breakthroughs & More — August 2025 — Podego",
+                    "url": "https://www.podego.com/insights/august-2025-good-news-ai-pfas-stories?utm_source=openai"
                   }
                 ],
                 "logprobs": [],
-                "text": "As of August 1, 2025, several positive environmental developments have been reported:\n\n1. **U.S. Introduces New Limits on Forever Chemicals in Drinking Water**: In April 2024, the Environmental Protection Agency (EPA) set its first-ever national legally enforceable limits on per- and polyfluoroalkyl substances (PFAS) in drinking water. This regulation requires public water systems to reduce contamination by 2029, aiming to decrease PFAS exposure for approximately 100 million people. ([homeplanet.grove.co](https://homeplanet.grove.co/blog-posts/positive-environmental-news-stories-that-give-us-hope-in-2025?utm_source=openai))\n\n2. **EU’s Nature Restoration Law**: The European Union has enacted the Nature Restoration Law, a comprehensive initiative to restore damaged ecosystems and boost biodiversity. The law aims to restore 20% of the EU’s land and sea areas by 2030 and all degraded ecosystems by 2050. ([homeplanet.grove.co](https://homeplanet.grove.co/blog-posts/positive-environmental-news-stories-that-give-us-hope-in-2025?utm_source=openai))\n\n3. **42-Year Sea Turtle Nest Record Broken on Anna Maria Island**: Conservation efforts on Anna Maria Island, Florida, led to a record 546 sea turtle nests, surpassing a 42-year-old record. Additionally, the return of the least tern, a threatened bird species, for the first time in 15 years highlights the positive impact of long-term conservation initiatives. ([homeplanet.grove.co](https://homeplanet.grove.co/blog-posts/positive-environmental-news-stories-that-give-us-hope-in-2025?utm_source=openai))\n\n4. **UK Closes Its Last Coal-Fired Power Plant**: The United Kingdom has closed its last coal-fired power plant, marking a significant step in its transition to cleaner energy sources. This move underscores the UK's commitment to reducing carbon emissions and combating climate change. ([homeplanet.grove.co](https://homeplanet.grove.co/blog-posts/positive-environmental-news-stories-that-give-us-hope-in-2025?utm_source=openai))\n\nThese developments reflect a global commitment to environmental conservation and sustainable practices. "
+                "text": "Here are some positive news stories from August 21, 2025:\n\n**Greece's Economic and Governance Revival**\n\nA decade after facing potential bankruptcy, Greece has made significant strides in restoring its financial and political stability. The Greek stock market is currently the best-performing worldwide, surpassing other European markets and the S&P 500. The country is on track to repay substantial bailout loans a full 10 years ahead of schedule. In 2024, Greece's economy grew at twice the rate of Germany's, a major creditor. Additionally, in 2023, Greece regained investment-grade status, following the adoption of a National Anti-Corruption Action Plan. To combat tax evasion and bribery, many government services have been digitized, aiming to restore public trust and attract investment. ([csmonitor.com](https://www.csmonitor.com/Daily/2025/20250821?utm_source=openai))\n\n**Saturn's Rings Offer Stunning View**\n\nFor the first time in 15 years, Saturn's iconic rings are perfectly tilted for a breathtaking view of their southern face. This alignment is visible through even basic telescopes, providing an excellent opportunity for both seasoned astronomers and first-time stargazers. Additionally, Venus and Jupiter are positioned side-by-side in the morning sky, and the Perseid meteor shower is peaking, offering a celestial spectacle. ([podego.com](https://www.podego.com/insights/august-2025-good-news-ai-pfas-stories?utm_source=openai))\n\n**Dutch Cities Install Cat-Friendly Staircases**\n\nIn Amsterdam and Amersfoort, small staircases are being installed along canals to help cats that fall in safely climb out. Funded by a €100,000 environment and biodiversity grant, the initiative aims to create over 500 cat-friendly escape routes by the end of the year. Judith Krom of the Party for the Animals emphasized that such simple measures can prevent significant animal suffering. ([podego.com](https://www.podego.com/insights/august-2025-good-news-ai-pfas-stories?utm_source=openai))\n\n**Breakthrough in PFAS Elimination**\n\nScientists at the University of Cambridge have discovered that specific gut bacteria can absorb and help eliminate PFAS, the \"forever chemicals\" linked to health risks like cancer and fertility issues. In a lab study, mice with humanized gut bacteria successfully excreted PFAS through their feces. This finding offers a promising path toward probiotic treatments that could protect people from PFAS accumulation. ([podego.com](https://www.podego.com/insights/august-2025-good-news-ai-pfas-stories?utm_source=openai))\n\n**Affordable, Stronger Titanium Alloy Developed**\n\nEngineers at Australia's Royal Melbourne Institute of Technology (RMIT) have developed a new titanium alloy that is 30% cheaper and stronger than industry standards. By replacing expensive vanadium with more abundant elements, the team achieved a more uniform microstructure, which is crucial for aerospace and medical applications. This advancement could revolutionize sectors like healthcare and aerospace, leading to lighter, stronger parts and more sustainable manufacturing practices. ([podego.com](https://www.podego.com/insights/august-2025-good-news-ai-pfas-stories?utm_source=openai))\n\n\n## Positive News Highlights from August 21, 2025:\n- [The Christian Science Monitor Daily for August 21, 2025](https://www.csmonitor.com/Daily/2025/20250821?utm_source=openai)\n- [Positive News Highlights | AI, PFAS Breakthroughs & More — August 2025 — Podego](https://www.podego.com/insights/august-2025-good-news-ai-pfas-stories?utm_source=openai) "
               }
             ],
             "role": "assistant"
@@ -133,7 +153,8 @@
         "text": {
           "format": {
             "type": "text"
-          }
+          },
+          "verbosity": "medium"
         },
         "tool_choice": {
           "type": "web_search_preview"
@@ -159,11 +180,11 @@
           "input_tokens_details": {
             "cached_tokens": 0
           },
-          "output_tokens": 471,
+          "output_tokens": 782,
           "output_tokens_details": {
             "reasoning_tokens": 0
           },
-          "total_tokens": 783
+          "total_tokens": 1094
         },
         "user": null,
         "metadata": {}

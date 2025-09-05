@@ -8,7 +8,7 @@
         "Authorization": "Sanitized",
         "Content-Length": "399",
         "Content-Type": "application/json",
-        "User-Agent": "OpenAI/2.2.0 (.NET 9.0.7; Microsoft Windows 10.0.26100)"
+        "User-Agent": "OpenAI/2.3.0 (.NET 9.0.8; Microsoft Windows 10.0.26100)"
       },
       "RequestBody": {
         "model": "gpt-4o-mini",
@@ -46,20 +46,19 @@
       "ResponseHeaders": {
         "Alt-Svc": "h3=\":443\"",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "9682ee347ae675a8-SEA",
+        "CF-RAY": "972dc955badc681b-SEA",
         "Connection": "keep-alive",
-        "Content-Length": "1618",
+        "Content-Length": "1645",
         "Content-Type": "application/json",
-        "Date": "Fri, 01 Aug 2025 05:28:10 GMT",
+        "Date": "Thu, 21 Aug 2025 23:07:25 GMT",
         "openai-organization": "Sanitized",
-        "openai-processing-ms": "825",
+        "openai-processing-ms": "851",
         "openai-project": "Sanitized",
         "openai-version": "2020-10-01",
         "Server": "cloudflare",
         "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
         "X-Content-Type-Options": "nosniff",
-        "x-envoy-decorator-operation": "tasksapi.openai.svc.cluster.local:8081/*",
-        "x-envoy-upstream-service-time": "833",
+        "x-envoy-upstream-service-time": "856",
         "x-ratelimit-limit-requests": "30000",
         "x-ratelimit-limit-tokens": "150000000",
         "x-ratelimit-remaining-requests": "29999",
@@ -69,9 +68,9 @@
         "X-Request-ID": "Sanitized"
       },
       "ResponseBody": {
-        "id": "resp_688c5069b8f8819a907fd15106b073730bb89600d6fb5786",
+        "id": "resp_68a7a6ac7df08196a7294cb7541607d20a92ed38b1e4abbf",
         "object": "response",
-        "created_at": 1754026089,
+        "created_at": 1755817644,
         "status": "completed",
         "background": false,
         "error": null,
@@ -82,11 +81,11 @@
         "model": "gpt-4o-mini-2024-07-18",
         "output": [
           {
-            "id": "fc_688c506a5bb0819ab9808ac3b9e56c8d0bb89600d6fb5786",
+            "id": "fc_68a7a6acf98c81969faba369bf9a033c0a92ed38b1e4abbf",
             "type": "function_call",
             "status": "completed",
             "arguments": "{\"time_of_day\":\"morning\"}",
-            "call_id": "call_Ha6i7T5qqZ9XvyWMRX7iljeo",
+            "call_id": "call_No50uV30XHINcX8LXSDZlQzq",
             "name": "get_custom_greeting"
           }
         ],
@@ -104,7 +103,8 @@
         "text": {
           "format": {
             "type": "text"
-          }
+          },
+          "verbosity": "medium"
         },
         "tool_choice": "auto",
         "tools": [

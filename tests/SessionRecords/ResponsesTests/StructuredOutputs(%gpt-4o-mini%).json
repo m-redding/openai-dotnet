@@ -8,7 +8,7 @@
         "Authorization": "Sanitized",
         "Content-Length": "448",
         "Content-Type": "application/json",
-        "User-Agent": "OpenAI/2.2.0 (.NET 9.0.7; Microsoft Windows 10.0.26100)"
+        "User-Agent": "OpenAI/2.3.0 (.NET 9.0.8; Microsoft Windows 10.0.26100)"
       },
       "RequestBody": {
         "model": "gpt-4o-mini",
@@ -50,32 +50,31 @@
       "ResponseHeaders": {
         "Alt-Svc": "h3=\":443\"",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "9682e079ca497609-SEA",
+        "CF-RAY": "972dc95fee839b60-SEA",
         "Connection": "keep-alive",
-        "Content-Length": "1255",
+        "Content-Length": "1855",
         "Content-Type": "application/json",
-        "Date": "Fri, 01 Aug 2025 05:18:48 GMT",
+        "Date": "Thu, 21 Aug 2025 23:07:27 GMT",
         "openai-organization": "Sanitized",
-        "openai-processing-ms": "923",
+        "openai-processing-ms": "1236",
         "openai-project": "Sanitized",
         "openai-version": "2020-10-01",
         "Server": "cloudflare",
         "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
         "X-Content-Type-Options": "nosniff",
-        "x-envoy-decorator-operation": "tasksapi.openai.svc.cluster.local:8081/*",
-        "x-envoy-upstream-service-time": "933",
+        "x-envoy-upstream-service-time": "1242",
         "x-ratelimit-limit-requests": "30000",
         "x-ratelimit-limit-tokens": "150000000",
         "x-ratelimit-remaining-requests": "29999",
-        "x-ratelimit-remaining-tokens": "149999935",
+        "x-ratelimit-remaining-tokens": "149999932",
         "x-ratelimit-reset-requests": "2ms",
         "x-ratelimit-reset-tokens": "0s",
-        "X-Request-ID": "req_825ffa15aea011e471cce199dc6407c7"
+        "X-Request-ID": "Sanitized"
       },
       "ResponseBody": {
-        "id": "Sanitized",
+        "id": "resp_68a7a6ae24848196837e60471a78c977076383b2ca942886",
         "object": "response",
-        "created_at": 1754025527,
+        "created_at": 1755817646,
         "status": "completed",
         "background": false,
         "error": null,
@@ -86,7 +85,7 @@
         "model": "gpt-4o-mini-2024-07-18",
         "output": [
           {
-            "id": "msg_688c4e37db488198a590e66215b625160d5136f38cbe7697",
+            "id": "msg_68a7a6ae77fc81968fd2245312ff2d16076383b2ca942886",
             "type": "message",
             "status": "completed",
             "content": [
@@ -94,7 +93,7 @@
                 "type": "output_text",
                 "annotations": [],
                 "logprobs": [],
-                "text": "{\"animal_data_list\":[\"Lion\",\"Elephant\",\"Giraffe\",\"Zebra\",\"Kangaroo\"]}"
+                "text": "{\"animal_data_list\":[\"Lion\",\"Elephant\",\"Kangaroo\",\"Giraffe\",\"Penguin\"]}"
               }
             ],
             "role": "assistant"
@@ -132,7 +131,8 @@
               "additionalProperties": false
             },
             "strict": true
-          }
+          },
+          "verbosity": "medium"
         },
         "tool_choice": "auto",
         "tools": [],

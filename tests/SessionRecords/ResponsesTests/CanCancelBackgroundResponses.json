@@ -8,7 +8,7 @@
         "Authorization": "Sanitized",
         "Content-Length": "142",
         "Content-Type": "application/json",
-        "User-Agent": "OpenAI/2.2.0 (.NET 9.0.7; Microsoft Windows 10.0.26100)"
+        "User-Agent": "OpenAI/2.3.0 (.NET 9.0.8; Microsoft Windows 10.0.26100)"
       },
       "RequestBody": {
         "background": true,
@@ -30,26 +30,25 @@
       "ResponseHeaders": {
         "Alt-Svc": "h3=\":443\"",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "9682e08dcb8bdefd-SEA",
+        "CF-RAY": "972dc9688d8e9b60-SEA",
         "Connection": "keep-alive",
-        "Content-Length": "608",
+        "Content-Length": "833",
         "Content-Type": "application/json",
-        "Date": "Fri, 01 Aug 2025 05:18:50 GMT",
+        "Date": "Thu, 21 Aug 2025 23:07:28 GMT",
         "openai-organization": "Sanitized",
-        "openai-processing-ms": "215",
+        "openai-processing-ms": "565",
         "openai-project": "Sanitized",
         "openai-version": "2020-10-01",
         "Server": "cloudflare",
         "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
         "X-Content-Type-Options": "nosniff",
-        "x-envoy-decorator-operation": "tasksapi.openai.svc.cluster.local:8081/*",
-        "x-envoy-upstream-service-time": "223",
-        "X-Request-ID": "req_754a2be7612cad81036add4ed468e010"
+        "x-envoy-upstream-service-time": "571",
+        "X-Request-ID": "Sanitized"
       },
       "ResponseBody": {
-        "id": "Sanitized",
+        "id": "resp_68a7a6af85948197b352fff273473532000397fa01d519cf",
         "object": "response",
-        "created_at": 1754025530,
+        "created_at": 1755817647,
         "status": "queued",
         "background": true,
         "error": null,
@@ -73,7 +72,8 @@
         "text": {
           "format": {
             "type": "text"
-          }
+          },
+          "verbosity": "medium"
         },
         "tool_choice": "auto",
         "tools": [],
@@ -86,39 +86,38 @@
       }
     },
     {
-      "RequestUri": "https://api.openai.com/v1/responses/resp_688c4e3a95e8819986c7210de3b1a64b0ff55cb4dd8c7e29/cancel",
+      "RequestUri": "https://api.openai.com/v1/responses/resp_68a7a6af85948197b352fff273473532000397fa01d519cf/cancel",
       "RequestMethod": "POST",
       "RequestHeaders": {
         "Accept": "application/json",
         "Authorization": "Sanitized",
         "Content-Length": "0",
-        "User-Agent": "OpenAI/2.2.0 (.NET 9.0.7; Microsoft Windows 10.0.26100)"
+        "User-Agent": "OpenAI/2.3.0 (.NET 9.0.8; Microsoft Windows 10.0.26100)"
       },
       "RequestBody": null,
       "StatusCode": 200,
       "ResponseHeaders": {
         "Alt-Svc": "h3=\":443\"",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "9682e0924f80defd-SEA",
+        "CF-RAY": "972dc96cb9309b60-SEA",
         "Connection": "keep-alive",
-        "Content-Length": "611",
+        "Content-Length": "836",
         "Content-Type": "application/json",
-        "Date": "Fri, 01 Aug 2025 05:18:51 GMT",
+        "Date": "Thu, 21 Aug 2025 23:07:28 GMT",
         "openai-organization": "Sanitized",
-        "openai-processing-ms": "353",
+        "openai-processing-ms": "356",
         "openai-project": "Sanitized",
         "openai-version": "2020-10-01",
         "Server": "cloudflare",
         "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
         "X-Content-Type-Options": "nosniff",
-        "x-envoy-decorator-operation": "tasksapi.openai.svc.cluster.local:8081/*",
-        "x-envoy-upstream-service-time": "359",
-        "X-Request-ID": "req_e909bfb8c0137e8d95fa386564e5d972"
+        "x-envoy-upstream-service-time": "360",
+        "X-Request-ID": "Sanitized"
       },
       "ResponseBody": {
-        "id": "Sanitized",
+        "id": "resp_68a7a6af85948197b352fff273473532000397fa01d519cf",
         "object": "response",
-        "created_at": 1754025530,
+        "created_at": 1755817647,
         "status": "cancelled",
         "background": true,
         "error": null,
@@ -142,7 +141,8 @@
         "text": {
           "format": {
             "type": "text"
-          }
+          },
+          "verbosity": "medium"
         },
         "tool_choice": "auto",
         "tools": [],
